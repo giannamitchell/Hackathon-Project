@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Directory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .directory-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .patient-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+
+        .patient-list li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .patient-list li:last-child {
+            border-bottom: none;
+        }
+
+        .patient-list li:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="directory-container">
+        <h1>Patient Directory</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for a patient...">
+        </div>
+        <ul class="patient-list">
+            <li><a href="#">Patient A</a></li>
+            <li><a href="#">Patient B</a></li>
+            <li><a href="#">Patient C</a></li>
+            <li><a href="#">Patient D</a></li>
+            <li><a href="#">Patient E</a></li>
+            <li><a href="#">Patient F</a></li>
+            <li><a href="#">Patient G</a></li>
+            <li><a href="#">Patient H</a></li>
+            <li><a href="#">Patient I</a></li>
+            <li><a href="#">Patient J</a></li>
+        </ul>
+    </div>
+    <script>
+        const patientList = document.querySelector('.patient-list');
+        const searchInput = document.querySelector('.search-bar input');
+        let patients = Array.from(patientList.querySelectorAll('li'));
+
+        // Function to sort patients alphabetically
+        function sortPatients() {
+            patients.sort((a, b) => {
+                const nameA = a.textContent.trim().toUpperCase();
+                const nameB = b.textContent.trim().toUpperCase();
+                return nameA.localeCompare(nameB);
+            });
+
+            // Remove existing list items
+            patientList.innerHTML = '';
+
+            // Append sorted list items
+            patients.forEach(patient => patientList.appendChild(patient));
+        }
+
+        // Function to filter patients based on search input
+        function filterPatients() {
+            const searchTerm = searchInput.value.trim().toUpperCase();
+
+            patients.forEach(patient => {
+                const patientName = patient.textContent.trim().toUpperCase();
+                if (patientName.includes(searchTerm)) {
+                    patient.style.display = '';
+                } else {
+                    patient.style.display = 'none';
+                }
+            });
+        }
+
+        // Initial sorting
+        sortPatients();
+
+        // Event listener for search input
+        searchInput.addEventListener('input', filterPatients);
+
+        // Event listener for patient click (navigation)
+        patientList.addEventListener('click', function(event) {
+            if (event.target.tagName === 'A') {
+                const patientName = event.target.textContent.trim();
+                // Redirect to patient information page (replace with actual URL)
+                window.location.href = `/patient-info/${patientName.replace(/\s+/g, '-').toLowerCase()}`;
+            }
+        });
+    </script>
+</body>
+</html>
