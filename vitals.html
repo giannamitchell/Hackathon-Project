@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Input Vitals</title>
+<style>
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+..card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #45a049;
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>Input Vitals</h2>
+  <div class="form-group">
+    <label for="bloodPressure">Blood Pressure (mmHg):</label>
+    <input type="text" id="bloodPressure" placeholder="Value">
+  </div>
+  <div class="form-group">
+    <label for="respiratoryRate">Respiratory Rate (breaths/min):</label>
+    <input type="text" id="respiratoryRate" placeholder="Value">
+  </div>
+  <div class="form-group">
+    <label for="bodyTemp">Body Temperature (°F):</label>
+    <input type="text" id="bodyTemp" placeholder="Value">
+  </div>
+  <div class="form-group">
+    <label for="pulseRate">Pulse Rate (bpm):</label>
+    <input type="text" id="pulseRate" placeholder="Value">
+  </div>
+  <div class="form-group">
+    <button onclick="submitVitals()">Submit</button>
+  </div>
+</div>
+
+<script>
+function submitVitals() {
+  const bloodPressure = document.getElementById("bloodPressure").value;
+  const respiratoryRate = document.getElementById("respiratoryRate").value;
+  const bodyTemp = document.getElementById("bodyTemp").value;
+  const pulseRate = document.getElementById("pulseRate").value;
+  // Here, you would typically send the data to a server or process it further
+  console.log("Blood Pressure:", bloodPressure);
+  console.log("Respiratory Rate:", respiratoryRate);
+  console.log("Body Temperature:", bodyTemp);
+  console.log("Pulse Rate:", pulseRate);
+
+  // Add your logic to handle the data here
+  // For example:
+  // - Send the data to a server using fetch or XMLHttpRequest
+  // - Display the data on the page
+  // - Store the data in local storage
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .notifications-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            color: #072A6C;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .notification-details {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="notifications-container">
+        <h1>Patient Notifications</h1>
+        <ul>
+            <li>
+                <strong>Appointment:</strong> Upcoming appointment on 25/03/2025 at 10:00 AM
+                <div class="notification-details">Please arrive 15 minutes early</div>
+            </li>
+            <li>
+                <strong>Prescription:</strong> Medication A refill approved
+                <div class="notification-details">Pick up your prescription at City Pharmacy</div>
+            </li>
+            <li>
+                <strong>Message from Dr. Smith:</strong> Regarding your recent lab results
+                <div class="notification-details">Please schedule a follow-up appointment</div>
+            </li>
+            <li>
+                <strong>Appointment:</strong> Appointment with Dr. Johnson rescheduled to 30/03/2025 at 02:00 PM
+                <div class="notification-details">Please confirm your availability</div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
