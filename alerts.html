@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Device</title>
+    <script>
+        // Function to send vital signs data to the server
+        function sendVitalsToServer(heartRate, bloodPressure, temperature, spo2) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "send_vitals.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // Sending vital signs data via POST request
+            var data = "heart_rate=" + heartRate + 
+                       "&blood_pressure=" + bloodPressure + 
+                       "&temperature=" + temperature + 
+                       "&spo2=" + spo2;
+            xhr.send(data);
+
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    console.log("Vitals sent successfully");
+                } else {
+                    console.log("Error sending vitals data");
+                }
+            };
+        }
+
+        // Simulate sending vital signs from a device (use real data from the device in production)
+        setInterval(function() {
+            var heartRate = Math.floor(Math.random() * (120 - 60 + 1)) + 60; // Random heart rate between 60 and 120
+            var bloodPressure = "120/80"; // Static for demo, replace with actual data
+            var temperature = 36.5; // Static for demo
+            var spo2 = 98; // Static for demo
+
+            sendVitalsToServer(heartRate, bloodPressure, temperature, spo2); // Send vitals to the server
+        }, 5000); // Send data every 5 seconds for demo purposes
+    </script>
+</head>
+<body>
+    <h1>Patient Device</h1>
+    <p>Vitals are being sent to the server every 5 seconds...</p>
+</body>
+</html>
